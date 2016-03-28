@@ -1,0 +1,26 @@
+#!/bin/bash 
+if [ ! -d "$HOME/.core" ]; then
+    mkdir $HOME/.core
+fi
+
+if [ ! -d "$HOME/.core/configs" ]; then
+    mkdir $HOME/.core/configs
+fi
+
+if [ ! -d "$HOME/.core/myservices" ]; then
+    mkdir $HOME/.core/myservices
+fi
+if [ ! -d "/usr/lib/scoreplus" ]; then
+    sudo mkdir /usr/lib/scoreplus
+fi
+
+if [ ! -d "/usr/lib/scoreplus/myservices" ]; then
+    sudo mkdir /usr/lib/scoreplus/myservices
+fi
+
+if [ ! -d "/usr/lib/scoreplus/resources" ]; then
+    sudo mkdir /usr/lib/scoreplus/resources
+fi	
+
+	
+	
