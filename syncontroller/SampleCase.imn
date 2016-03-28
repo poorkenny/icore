@@ -1,0 +1,269 @@
+node n1 {
+    type router
+    model router
+    network-config {
+	hostname n1
+	!
+	interface eth0
+	 ip address 10.0.0.1/32
+	 ipv6 address 2001:0::1/128
+	!
+    }
+    canvas c1
+    iconcoords {119.0 131.0}
+    labelcoords {119.0 163.0}
+    interface-peer {eth0 n11}
+}
+
+node n2 {
+    type router
+    model router
+    network-config {
+	hostname n2
+	!
+	interface eth0
+	 ip address 10.0.0.2/32
+	 ipv6 address 2001:0::2/128
+	!
+    }
+    canvas c1
+    iconcoords {112.0 222.0}
+    labelcoords {112.0 254.0}
+    interface-peer {eth0 n11}
+}
+
+node n3 {
+    type router
+    model router
+    network-config {
+	hostname n3
+	!
+	interface eth0
+	 ip address 10.0.0.3/32
+	 ipv6 address 2001:0::3/128
+	!
+    }
+    canvas c1
+    iconcoords {184.0 352.0}
+    labelcoords {184.0 384.0}
+    interface-peer {eth0 n11}
+}
+
+node n4 {
+    type router
+    model router
+    network-config {
+	hostname n4
+	!
+	interface eth0
+	 ip address 10.0.0.4/32
+	 ipv6 address 2001:0::4/128
+	!
+    }
+    canvas c1
+    iconcoords {283.0 454.0}
+    labelcoords {283.0 486.0}
+    interface-peer {eth0 n11}
+}
+
+node n5 {
+    type router
+    model router
+    network-config {
+	hostname n5
+	!
+	interface eth0
+	 ip address 10.0.0.5/32
+	 ipv6 address 2001:0::5/128
+	!
+    }
+    canvas c1
+    iconcoords {466.0 503.0}
+    labelcoords {466.0 535.0}
+    interface-peer {eth0 n11}
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname n6
+	!
+	interface eth0
+	 ip address 10.0.0.6/32
+	 ipv6 address 2001:0::6/128
+	!
+    }
+    canvas c1
+    iconcoords {692.0 490.0}
+    labelcoords {692.0 522.0}
+    interface-peer {eth0 n11}
+}
+
+node n7 {
+    type router
+    model router
+    network-config {
+	hostname n7
+	!
+	interface eth0
+	 ip address 10.0.0.7/32
+	 ipv6 address 2001:0::7/128
+	!
+    }
+    canvas c1
+    iconcoords {867.0 377.0}
+    labelcoords {867.0 409.0}
+    interface-peer {eth0 n11}
+}
+
+node n8 {
+    type router
+    model router
+    network-config {
+	hostname n8
+	!
+	interface eth0
+	 ip address 10.0.0.8/32
+	 ipv6 address 2001:0::8/128
+	!
+    }
+    canvas c1
+    iconcoords {896.0 226.0}
+    labelcoords {896.0 258.0}
+    interface-peer {eth0 n11}
+}
+
+node n9 {
+    type router
+    model router
+    network-config {
+	hostname n9
+	!
+	interface eth0
+	 ip address 10.0.0.9/32
+	 ipv6 address 2001:0::9/128
+	!
+    }
+    canvas c1
+    iconcoords {822.0 61.0}
+    labelcoords {822.0 93.0}
+    interface-peer {eth0 n11}
+}
+
+node n10 {
+    type router
+    model router
+    network-config {
+	hostname n10
+	!
+	interface eth0
+	 ip address 10.0.0.10/32
+	 ipv6 address 2001:0::10/128
+	!
+    }
+    canvas c1
+    iconcoords {644.0 33.0}
+    labelcoords {644.0 65.0}
+    interface-peer {eth0 n11}
+}
+
+node n11 {
+    type wlan
+    network-config {
+	hostname wlan11
+	!
+	interface wireless
+	 ip address 10.0.0.0/32
+	 ipv6 address 2001:0::0/128
+	!
+	mobmodel
+	coreapi
+	basic_range
+	!
+    }
+    custom-config {
+	custom-config-id basic_range
+	custom-command {3 3 9 9 9}
+	config {
+	range=275
+	bandwidth=54000000
+	jitter=0
+	delay=20000
+	error=0
+	}
+    }
+    canvas c1
+    iconcoords {416.0 145.0}
+    labelcoords {416.0 177.0}
+    interface-peer {e0 n1}
+    interface-peer {e1 n2}
+    interface-peer {e2 n3}
+    interface-peer {e3 n4}
+    interface-peer {e4 n5}
+    interface-peer {e5 n6}
+    interface-peer {e6 n7}
+    interface-peer {e7 n8}
+    interface-peer {e8 n9}
+    interface-peer {e9 n10}
+}
+
+link l1 {
+    nodes {n11 n1}
+}
+
+link l2 {
+    nodes {n11 n2}
+}
+
+link l3 {
+    nodes {n11 n3}
+}
+
+link l4 {
+    nodes {n11 n4}
+}
+
+link l5 {
+    nodes {n11 n5}
+}
+
+link l6 {
+    nodes {n11 n6}
+}
+
+link l7 {
+    nodes {n11 n7}
+}
+
+link l8 {
+    nodes {n11 n8}
+}
+
+link l9 {
+    nodes {n11 n9}
+}
+
+link l10 {
+    nodes {n11 n10}
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}

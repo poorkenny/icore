@@ -1,0 +1,386 @@
+clock {
+    starttime '2013-05-01 00:00:00';
+    stoptime '2013-05-01 00:10:00';
+}
+
+module powerflow {
+	solver_method NR;
+}
+module tape;
+
+#set relax_naming_rules=1;
+#set profiler=1
+script export clock;
+script on_sync bash sync.bash; 
+script on_term bash terminate.bash;
+#set server_portnum=20000;
+#set relax_naming_rules=1;
+object overhead_line_conductor {     
+      name overhead_line_conductor_default;     
+      geometric_mean_radius 0.031300;     
+      resistance 0.185900;     
+}       
+
+object line_spacing {     
+      name line_spacing_default;     
+      distance_AB 2.5;     
+      distance_AC 4.5;     
+      distance_BC 7.0;     
+      distance_BN 5.656854;     
+      distance_AN 4.272002;     
+      distance_CN 5.0;     
+}       
+
+
+object line_configuration {     
+      name line_configuration_default;     
+      conductor_A overhead_line_conductor_default;     
+      conductor_B overhead_line_conductor_default;     
+      conductor_C overhead_line_conductor_default;     
+      conductor_N overhead_line_conductor_default;     
+      spacing line_spacing_default;     
+}       
+
+//object overhead_line {
+//    from bus1;
+//    to regulator1;
+//    power_objects {bus1 regulator1};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line1;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+//object overhead_line {
+//    from regulator1;
+//    to bus2;
+//    power_objects {regulator1 bus2};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line2;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+object overhead_line {
+    from bus2;
+    to bus3;
+//    power_objects {bus2 bus3};
+    length 200;
+//    type overhead_line_conductor;
+    name power_line3;
+    phases ABCN;
+    configuration line_configuration_default;
+//    status true;
+}
+
+object overhead_line {
+    from bus3;
+    to bus4;
+//    power_objects {bus3 bus4};
+    length 200;
+//    type overhead_line_conductor;
+    name power_line4;
+    phases ABCN;
+    configuration line_configuration_default;
+//    status true;
+}
+
+object overhead_line {
+    from bus4;
+    to bus5;
+//    power_objects {bus4 bus5};
+    length 200;
+//    type overhead_line_conductor;
+    name power_line5;
+    phases ABCN;
+    configuration line_configuration_default;
+//    status true;
+}
+
+//object overhead_line {
+//    from bus5;
+//    to transformer1;
+//    power_objects {bus5 transformer1};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line6;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+//object overhead_line {
+//    from transformer1;
+//    to load_object1;
+//    power_objects {transformer1 load_object1};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line7;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+//object overhead_line {
+//    from bus2;
+//    to switch_object1;
+//    power_objects {bus2 switch_object1};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line8;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+//object overhead_line {
+//    from switch_object1;
+//    to load_object2;
+//    power_objects {switch_object1 load_object2};
+//    length 200;
+//    type overhead_line_conductor;
+//    name power_line9;
+//    phases ABCN;
+//    configuration line_configuration_default;
+//    status false;
+//}
+
+object overhead_line {
+    from load_object2;
+    to load_object3;
+//    power_objects {load_object2 load_object3};
+    length 200;
+//    type overhead_line_conductor;
+    name power_line10;
+    phases ABCN;
+    configuration line_configuration_default;
+//    status true;
+}
+
+object overhead_line {
+    from load_object3;
+    to load_object4;
+//    power_objects {load_object3 load_object4};
+    length 200;
+//    type overhead_line_conductor;
+    name power_line11;
+    phases ABCN;
+    configuration line_configuration_default;
+//    status true;
+}
+
+object node {
+    name bus1;
+//    type bus;
+    phases ABCN;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {33.0 422.0};
+//    labelcoords {33.0 454.0};
+    bustype SWING;
+}
+
+object node {
+    name bus2;
+//    type bus;
+    phases ABCN;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {247.0 408.0};
+//    labelcoords {247.0 440.0};
+}
+
+object node {
+    name bus3;
+//    type bus;
+    phases ABCN;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {275.0 266.0};
+//    labelcoords {275.0 298.0};
+}
+
+object node {
+    name bus4;
+//    type bus;
+    phases ABCN;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {523.0 200.0};
+//    labelcoords {523.0 232.0};
+}
+
+object node {
+    name bus5;
+//    type bus;
+    phases ABCN;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {584.0 397.0};
+//    labelcoords {584.0 429.0};
+}
+
+object load {
+    name load_object1;
+//    type load_object;
+    phases ABC;
+    voltage_A 480;
+    voltage_B 480;
+    voltage_C 480;
+    constant_power_A 32500+52000j;
+    constant_power_B 42500+36000j;
+    constant_power_C 45500+48000j;
+    nominal_voltage 480;
+//    canvas c1;
+//    iconcoords {780.0 371.0};
+//    labelcoords {780.0 403.0};
+     object player {
+	property constant_power_A;
+	file scoreplus.player;
+	loop 744;
+	};
+}
+
+object load {
+    name load_object1;
+//    type load_object;
+    phases ABC;
+    voltage_A 480;
+    voltage_B 480;
+    voltage_C 480;
+    constant_power_A 32500+52000j;
+    constant_power_B 42500+36000j;
+    constant_power_C 45500+48000j;
+    nominal_voltage 480;
+//    canvas c1;
+//    iconcoords {780.0 371.0};
+//    labelcoords {780.0 403.0};
+     object player {
+	property constant_power_A;
+	file scoreplus.player;
+	loop 744;
+	};
+}
+
+object load {
+    name load_object2;
+//    type load_object;
+    phases ABC;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    constant_power_A 325000+520000j;
+    constant_power_B 425000+360000j;
+    constant_power_C 455000+480000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {308.0 607.0};
+//    labelcoords {308.0 639.0};
+     object player {
+	property constant_power_A;
+	file scoreplus.player;
+	loop 744;
+	};
+}
+
+object load {
+    name load_object3;
+//    type load_object;
+    phases ABC;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    constant_power_A 325000+520000j;
+    constant_power_B 425000+360000j;
+    constant_power_C 455000+480000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {576.0 471.0};
+//    labelcoords {576.0 503.0};
+     object player {
+	property constant_power_A;
+	file scoreplus.player;
+	loop 744;
+	};
+}
+
+object load {
+    name load_object4;
+//    type load_object;
+    phases ABC;
+    voltage_A 2401.7771;
+    voltage_B -1200.8886-2080.000j;
+    voltage_C -1200.8886+2080.000j;
+    constant_power_A 325000+520000j;
+    constant_power_B 425000+360000j;
+    constant_power_C 455000+480000j;
+    nominal_voltage 2401.7771;
+//    canvas c1;
+//    iconcoords {785.0 596.0};
+//    labelcoords {785.0 628.0};
+     object player {
+	property constant_power_A;
+	file scoreplus.player;
+	loop 744;
+	};
+}
+
+object switch {
+    name switch_object1;
+//    type switch_object;
+    phases ABCN;
+    from bus2;
+    to load_object2;
+    status CLOSED;
+//    canvas c1;
+//    iconcoords {288.0 512.0};
+//    labelcoords {288.0 544.0};
+}
+
+object transformer {
+    phases ABCN;
+    name transformer1;
+    from bus5;
+    to load_object1;
+    configuration object transformer_configuration {
+    connect_type WYE_WYE;
+    power_rating 500;
+    primary_voltage 4160;
+    secondary_voltage 480;
+    resistance 0.011;
+    reactance 0.02;
+    };
+}
+
+object regulator {
+    phases ABC;
+    name regulator1;
+    from bus1;
+    to bus2;
+    configuration object regulator_configuration {
+    connect_type 1;
+    raise_taps 16;
+    lower_taps 16;
+    regulation 0.10;
+    };
+}
+
